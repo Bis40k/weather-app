@@ -58,13 +58,14 @@ async function checkWeather(city){ // Запрашиваем данные о п�
     var data = await response.json(); // парсинг (превращает строку в код) JSON-ответа (JSON - '{"name":"New York","main":{"temp":22,"humidity":50}}')
 
 
-
+    // Обновление данных
     document.querySelector(".city").innerHTML = data.name;
     document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
     document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
     const windSpeedMS = (data.wind.speed * 0.277778).toFixed(1);
     document.querySelector(".wind").innerHTML = windSpeedMS + " m/s";
 
+    // Зависимость иконки от погоды
     const weatherIcon = document.querySelector(".weather-icon");
     if(data.weather[0].main == "Clouds") {
         weatherIcon.src = "pic/clouds.png";
@@ -82,11 +83,11 @@ async function checkWeather(city){ // Запрашиваем данные о п�
         weatherIcon.src = "pic/sunny.png";
     }
 }
-
+// Обработка клика
 searchBtn.addEventListener("click", ()=>{
     checkWeather(searchBox.value);
 })
-
+// Оработка клавиши ENTER
 searchBox.addEventListener("keypress", (e) => {
     if(e.key === "Enter" && searchBox.value) {
         checkWeather(searchBox.value);
