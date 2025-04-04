@@ -50,14 +50,14 @@
 const apiKey = "df64007164fc2c756bfed0a0c85b9b3d"; // API ключ (токен)
 const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";  // Базовый URL API с метрической системой измерений (надстройка)
 
-const searchBox = document.querySelector(".search input");
-const searchBtn = document.querySelector(".search button");
+const searchBox = document.querySelector(".search input"); // Находим поле ввода
+const searchBtn = document.querySelector(".search button"); // Находим кнопку поиска
 
-async function checkWeather(city){
-    const response = await fetch(`${apiUrl}${city}&appid=${apiKey}`);
-    var data = await response.json();
+async function checkWeather(city){ // Запрашиваем данные о погоде у API
+    const response = await fetch(`${apiUrl}${city}&appid=${apiKey}`); // Запрос к API
+    var data = await response.json(); // парсинг (превращает строку в код) JSON-ответа (JSON - '{"name":"New York","main":{"temp":22,"humidity":50}}')
 
-    console.log(data);
+
 
     document.querySelector(".city").innerHTML = data.name;
     document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
