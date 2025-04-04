@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 <head>
-    <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+    <meta name = "viewport" content="width=device-width, initial-scale=1.0">   <!-- Настройка viewport для адаптивного дизайна на мобильных устройствах -->
     <title>Weather</title>
     <link rel ="stylesheet" href="weather.css">
     <style>
@@ -15,24 +15,26 @@
 </head>
 <body>
     <div class="card">
-        <div class="search">
-            <input type="text" placeholder="Город"
-            spellcheck="false">
+        <div class="search"> <!-- Блок поиска -->
+            <input type="text" placeholder="Город" 
+            spellcheck="false"> <!-- Поле ввода города -->
             <button><img src="pic/search.png" ></button>
         </div>
-        <div class="weather">
+        <div class="weather"> <!-- Блок с информацией о погоде -->
             <img src="pic/rain.png" class="weather-icon">
-            <h1 class = "temp">22°C</h1>
-            <h2 class = "city">Москва</h2>
-            <div class="details">
-                <div class = "col">
+            <h1 class = "temp">22°C</h1> <!-- Дефолт температура -->
+            <h2 class = "city">Москва</h2> <!-- Дефолт город -->
+
+
+            <div class="details"> <!-- Детали: влажность и скорость ветра -->
+                <div class = "col"> <!-- Колонка с влажностью -->
                     <img src="pic/humidity.png">
                     <div>
                         <p class="humidity">50%</p>
                         <p>влажность</p>
                     </div>
                 </div>
-                <div class = "col">
+                <div class = "col"> <!-- Колонка со скоростью ветра -->
                     <img src="pic/wind.png">
                     <div>
                         <p class="wind speed">15 м/с</p>
@@ -45,8 +47,8 @@
 
 <script>
 
-const apiKey = "df64007164fc2c756bfed0a0c85b9b3d";
-const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+const apiKey = "df64007164fc2c756bfed0a0c85b9b3d"; // API ключ (токен)
+const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";  // Базовый URL API с метрической системой измерений (надстройка)
 
 const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
